@@ -1,0 +1,15 @@
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\bin\Debug\net7.0\Project2Demo.exe
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\bin\Debug\net7.0\Project2Demo.deps.json
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\bin\Debug\net7.0\Project2Demo.runtimeconfig.json
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\bin\Debug\net7.0\Project2Demo.dll
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\bin\Debug\net7.0\Project2Demo.pdb
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\Project2Demo.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\Project2Demo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\Project2Demo.AssemblyInfoInputs.cache
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\Project2Demo.AssemblyInfo.cs
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\Project2Demo.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\Project2Demo.dll
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\refint\Project2Demo.dll
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\Project2Demo.pdb
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\Project2Demo.genruntimeconfig.cache
+C:\Users\HP\Documents\GitHub\Csharp\Project2Demo\obj\Debug\net7.0\ref\Project2Demo.dll
