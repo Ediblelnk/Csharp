@@ -181,9 +181,9 @@ class HauntedHouseEscape
   } // End theLibrary()
 
 
-  ////////////////////
-  // THE LIVINGROOM //
-  ////////////////////
+  /////////////////////
+  // THE LIVING ROOM //
+  /////////////////////
 
   // Describe to the players what the living room looks like //
   static void theLivingroomView()
@@ -194,7 +194,7 @@ class HauntedHouseEscape
     Console.WriteLine("something that resembled human bones. Exits leading east and north-west.");
   } // End of theLivingroomView()
 
-  // What the players can do when inside the livingroom. //
+  // What the players can do when inside the living room. //
   static void theLivingroom()
   {
     theLivingroomView();
