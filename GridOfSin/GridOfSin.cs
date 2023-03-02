@@ -34,6 +34,11 @@ class Script {
   public static string inputError =
   "\nSorry, that choice had no relevant keywords. Please Try Again.";
 
+  public static string deathMsg = 
+  "\nYOU HAVE DIED. " +
+  "\n\nYour corpse will be forever lost to the dungeon, held in company with the humanoids and dark magic beings " +
+  "living here.";
+
   public class roomR3GR37 {
     public static string initial = 
     "\nYou find yourself in a small, dark dungeon-like chamber. The walls are made of cold, gray stone, and the only light comes " +
@@ -118,19 +123,64 @@ class Script {
   }
 
   public class roomLU57 {
+    public static string initial = 
+    "\nYou open the door marked \"LU57\", and you enter a near empty room. There is a torch flickering on one wall, casting shadows which dance around the room. Suddenly, a beautiful woman appears before you. Her long hair flows around her shoulders, and her eyes twinkle in the dim light. She is holding a small vial, filled with a strange pink liquid. She offers it to you, claiming it symbolizes love, through which all things are possible.";
 
+    public static string acceptVial = 
+    "\nYou reach out to grab it, but before you can, the woman transforms into a grotesque monster with razor-sharp claws and teeth. You stumble back, your heart pounding in fear, as the monster lunges at you, intent on tearing you apart. However, just as she is about to rip you to shreds, she evaporates into the air, but not before she was able to get a couple scratches in. You catch your breath, gripping your scratches.\n\nYou look around, and realize you dropped the vial when the woman had jumped at you. The pink liquid is oozing all over the floor, mixed with the broken glass from the vial.";
+
+    public static string rejectVial =
+    "\nYou firmly decline the vial, but the woman refuses to accept your answer. She keeps insisting that you take the vial, growing increasingly insistent and desperate. You continue to reject her, and her beauty slowly fades; she transforms into a hideous witch.\n\nHer hair turns brittle and gray, her skin wrinkles and sags, and her eyes grow dull and lifeless. She withers away into nothingness, leaving you alone in the dungeon, shaking with relief.";
+
+    public static string navigation =
+    "\nThere are four thick wooden doors: one is marked as \"PR1D3\" (West), another is marked as \"61U770N7\" (North), the third is marked as \"6R33D\" (South), while the fourth \"4C3D14\" (East).";
+
+    public static string previous =
+    "\nYou open the door to the \"LU57\" room. There is a torch flickering on one wall, casting shadows which dance around the room.";
+
+    public static string acceptedVial = 
+    "\nYou see the mix of broken glass and pink liquid from when you accepted the offer of the woman.";
   }
 
   public class room5107H {
+    public static string initial =
+    "\nYou open the door marked \"5107H\", and are greeted with a dimly lit room, with cold stone walls. You notice something unusual in the center of the room: a set of comfortable-looking furniture arranged neatly.\n\nWhen you inspect closer, you see the furniture is made of plush leather and soft cushions. You see something shiny wedged in the cushion of one chair, but you are not sure what it is. You are drawn to sit in it.";
 
+    public static string sitChair =
+    "\nYou approach cautiously and sit down on one of the chairs, and sink into its comforting embrace.\n\nSuddenly, you hear a loud click. The chair's arms have snapped shut, trapping you. Panic sets in as you struggle to break free. You look around and see the shiny object wedged in the cushion of the chair you are trapped in. You might be able to grab it if you try hard enough.";
+
+    public static string reachObject =
+    "\nYou angle your feet up on the chair enough to pry the shiny object out of the cushion. You are able to see it is a bronze key, and notice that there is a small keyhole on the arm of the chair, right beside your hand.\n\nYou realize that the key must be the only way out of this trap, and need to put the key into the chair. You struggle to orientate your body so that the key fits into the keyhole, but eventually you are able to get it.\n\nYou insert the key and turn it, and it gives a releasing click. The chair's grip on you loosens, and you are able to get up. You grab the bronze key.";
+
+    public static string navigation =
+    "\nThere are two thick wooden doors: one is marked as \"6R33D\" (West), while the other is marked as \"4C3D14\" (North).";
+
+    public static string previousSat =
+    "\nThis is the \"5107H\" room; it is a dimly lit room, with cold stone walls. It has a set of comfortable-looking furniture arranged neatly in the center of the room, which you had previously sat in.";
+
+    public static string previousNoSat =
+    "\nThis is the \"5107H\" room; it is a dimly lit room, with cold stone walls. It has a set of comfortable-looking furniture arranged neatly in the center of the room, which has a shiny object in the cushion of one chair. You are still drawn to it";
   }
 
   public class room61U770N7 {
+    public static string entrance =
+    "\nAs you enter the \"61U770N7\" Room, your nostrils are met with the intoxicating  aroma of food. There are tables and tables of food and drink around you. Your stomach growls with hunger and your mouth is dry with thirst.\n\nThere are three thick wooden doors: one is marked as \"3NV7\" (West), another is marked as \"LU57\" (South), and the third is marked as \"WR47H\" (East).";
 
+    public static string ateFood =
+    "\nYou decide to give in to your hunger and thirst and start to consume the food at a rapid rate. You shovel food into your mouth, barely even giving your tongue a chance to taste it, in a desperate attempt to fill your stomach.\n\nSuddenly, you feel a sharp pain in your stomach, and you collapse to the ground. You realize, too late, that the food has been poisoned. As life fades from your eyes, you ask yourself what you could have done differently.";
   }
 
   public class room4C3D14 {
+    public static string entrance =
+    "\nYou open the \"4C3D14\" door and are greeted with a pristine stone box of a room. The walls are completely smooth, and the floor is flat as can be. The only thing in the room not in pristine condition is in the very center of the room: a protrusion coming out from the center of the floor. There is a rusty hatch on the protrusion, held shut with a lock.\n\nYou approach the hatch. As you inspect it, you see that the lock has three keyholes.\n\nThere are three thick wooden doors: one is marked as \"WR47H\" (North), another is marked as \"LU57\" (West), and the third is marked as \"5107H\" (South). What would you like to do?";
 
+    public static string threeKeys1 =
+    "\nYou grab the three keys you have collected: the bronze key, the silver key, and the gold key and place them into the lock at the center of the room. You hear the lock click open, and you are able to release it from holding the hatch.\n\nYou grab the rusty hatch and use all your might to flip it open. It reveals a ladder, built into the floor, going down unto the depths below. You don't know what it might hold, but it surely must  be better than the hell that you just went through.\n\nYou mount the ladder, and start descending into the darkness. As you descend, you start to hear the sound of a search party. You hear your name being called; they are searching for you! As you continue going down, you are able to see their search lights shining up at you.";
+
+    // "[NAME], is that you? Oh my god, it is you! We are so glad we have found you!"
+
+    public static string threeKeys2 =
+    "\nYour heart races with excitement and gratitude as you make your way towards the sound of their voices. As you emerge from the ladder and rejoin your friends, you feel overwhelmed with gratitude and a renewed sense of appreciation for your life.";
   }
 
   public class roomWR47H {
@@ -140,6 +190,7 @@ class Script {
 
 class GridOfSin {
   private static Dictionary<string, bool> roomsExplored = new Dictionary<string, bool>(9);
+  private static bool acceptedVial = false;
   private static List<string> playerInventory = new List<string>();
   private static int playerHealth;
   private static string playerName = "";
@@ -157,6 +208,7 @@ class GridOfSin {
 
   private static void setGameData() {
     roomsExplored = setRoomsExplored();
+    acceptedVial = false;
     playerInventory = new List<string>();
     playerHealth = 100;
     playerName = "";
@@ -257,7 +309,6 @@ class GridOfSin {
   }
 
   private static void mirrorDialogue() {
-    Console.WriteLine(Script.decisionSeparator);
     Console.WriteLine(Script.roomPR1D3.lookAtMirror1);
 
     while(true) {
@@ -410,13 +461,53 @@ class GridOfSin {
         Console.WriteLine(Script.inputError);
       }
     }
-
-
   }
 
   private static void roomLU57() {
     Console.WriteLine(Script.decisionSeparator);
+    if(roomsExplored["LU57"]) {
+      Console.WriteLine(Script.roomLU57.previous);
+      if(acceptedVial) {Console.WriteLine(Script.roomLU57.acceptedVial);}
+    } else {
+      Console.WriteLine(Script.roomLU57.initial);
+      roomsExplored["LU57"] = true;
 
+      while(true) {
+        playerChoice = getChoice("Do you accept the vial?");
+
+        if(playerChoice.Contains("YES")) {
+          Console.WriteLine(Script.roomLU57.acceptVial);
+          acceptedVial = true;
+          break;
+        } else if(playerChoice.Contains("NO")) {
+          Console.WriteLine(Script.roomLU57.rejectVial);
+          break;
+        } else if(playerChoice.Contains("INVENTORY")) {
+          printInventory();
+        } else {
+          Console.WriteLine(Script.inputError);
+        }
+      }
+    }
+    Console.WriteLine(Script.roomLU57.navigation);
+
+    while(true) {
+      playerChoice = getChoice("What would you like to do?");
+
+      if(playerChoice.Contains("PR1D3") || playerChoice.Contains("WEST")) {
+        roomPR1D3();
+      } else if(playerChoice.Contains("61U770N7") || playerChoice.Contains("NORTH")) {
+        room61U770N7();
+      } else if(playerChoice.Contains("6R33D") || playerChoice.Contains("SOUTH")) {
+        room6R33D();
+      } else if(playerChoice.Contains("4C3D14") || playerChoice.Contains("EAST")) {
+        room4C3D14();
+      } else if(playerChoice.Contains("INVENTORY")) {
+        printInventory();
+      } else {
+        Console.WriteLine(Script.inputError);
+      }
+    }
   }
 
   private static void room5107H() {
@@ -440,6 +531,21 @@ class GridOfSin {
   }
 
   private static void conclusionDead() {
-    Console.WriteLine("YOU ARE DEAD.");
+    Console.WriteLine(Script.deathMsg);
+
+    while(true) {
+      playerChoice = getChoice("Would you like to play again?");
+
+      if(playerChoice.Contains("YES")) {
+        setGameData();
+        roomR3GR37();
+      } else if(playerChoice.Contains("NO")) {
+        credits();
+      }
+    }
+  }
+
+  public static void credits() {
+    Console.WriteLine("THIS IS THE CREDITS");
   }
 }
