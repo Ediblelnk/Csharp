@@ -191,6 +191,7 @@ class Script {
 class GridOfSin {
   private static Dictionary<string, bool> roomsExplored = new Dictionary<string, bool>(9);
   private static bool acceptedVial = false;
+  private static bool satInChair = false;
   private static List<string> playerInventory = new List<string>();
   private static int playerHealth;
   private static string playerName = "";
@@ -209,6 +210,7 @@ class GridOfSin {
   private static void setGameData() {
     roomsExplored = setRoomsExplored();
     acceptedVial = false;
+    satInChair = false;
     playerInventory = new List<string>();
     playerHealth = 100;
     playerName = "";
@@ -355,12 +357,10 @@ class GridOfSin {
         playerChoice = getChoice("Will you take the Ruby Necklace or Golden Glasses?");
 
         if(playerChoice.Contains("GOLD")) {
-          Console.WriteLine(Script.decisionSeparator);
           Console.WriteLine(Script.room6R33D.goldenGlasses);
           playerInventory.Add("Golden Glasses");
           break;
         } else if(playerChoice.Contains("RUBY")) {
-          Console.WriteLine(Script.decisionSeparator);
           Console.WriteLine(Script.room6R33D.rubyNecklace);
           conclusionDead();
         } else if(playerChoice.Contains("INVENTORY")) {
@@ -510,8 +510,32 @@ class GridOfSin {
     }
   }
 
-  private static void room5107H() {
+  private static void room5107H(bool exitChair = false) {
     Console.WriteLine(Script.decisionSeparator);
+    if(roomsExplored["5107H"] && satInChair) {
+      Console.WriteLine(Script.room5107H.previousSat);
+    } else if(roomsExplored["5107H"] && !satInChair) {
+      Console.WriteLine(Script.room5107H.previousSat);
+    } else {
+      Console.WriteLine(Script.room5107H.initial);
+      roomsExplored["5107H"] = true;
+      Console.WriteLine(Script.room5107H.navigation);
+
+      while(true) {
+        playerChoice = getChoice("What would you like to do?");
+
+        if(playerChoice.Contains("SIT") || playerChoice.Contains("CHAIR")) {
+          chairDialogue();
+        } else if(playerChoice.Contains("6R33D") || playerChoice.Contains("WEST")) {
+          room6R33D();
+        } else if(playerChoice.Contains("4C3D14") || playerChoice.Contains("NORTH")) {
+          
+        }
+      }
+    }
+  }
+
+  private static void chairDialogue() {
 
   }
 
