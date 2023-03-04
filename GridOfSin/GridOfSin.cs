@@ -510,38 +510,77 @@ class GridOfSin {
     }
   }
 
-  private static void room5107H(bool exitChair = false) {
+  private static void room5107H(bool exitChair = false) { 
     Console.WriteLine(Script.decisionSeparator);
-    if(roomsExplored["5107H"] && satInChair) {
+    if(roomsExplored["5107H"] && satInChair && !exitChair) {
       Console.WriteLine(Script.room5107H.previousSat);
-    } else if(roomsExplored["5107H"] && !satInChair) {
-      Console.WriteLine(Script.room5107H.previousSat);
-    } else {
+    } else if(roomsExplored["5107H"] && !satInChair & !exitChair) {
+      Console.WriteLine(Script.room5107H.previousNoSat);
+    } else if(!exitChair) {
       Console.WriteLine(Script.room5107H.initial);
       roomsExplored["5107H"] = true;
+    }
       Console.WriteLine(Script.room5107H.navigation);
 
-      while(true) {
-        playerChoice = getChoice("What would you like to do?");
+    while(true) {
+      playerChoice = getChoice("What would you like to do?");
 
-        if(playerChoice.Contains("SIT") || playerChoice.Contains("CHAIR")) {
-          chairDialogue();
-        } else if(playerChoice.Contains("6R33D") || playerChoice.Contains("WEST")) {
-          room6R33D();
-        } else if(playerChoice.Contains("4C3D14") || playerChoice.Contains("NORTH")) {
-          
-        }
+      if(!satInChair && (playerChoice.Contains("SIT") || playerChoice.Contains("CHAIR"))) {
+        satInChair = true;
+        chairDialogue();
+      } else if(playerChoice.Contains("6R33D") || playerChoice.Contains("WEST")) {
+        room6R33D();
+      } else if(playerChoice.Contains("4C3D14") || playerChoice.Contains("NORTH")) {
+        room4C3D14();
+      } else if(playerChoice.Contains("INVENTORY")) {
+        printInventory();
+      } else {
+        Console.WriteLine(Script.inputError);
       }
     }
   }
 
   private static void chairDialogue() {
+    Console.WriteLine(Script.room5107H.sitChair);
 
+    while(true) {
+      playerChoice = getChoice("What would you like to do?");
+
+      if(playerChoice.Contains("REACH") || playerChoice.Contains("TRY")) {
+        Console.WriteLine(Script.room5107H.reachObject);
+        playerInventory.Add("Bronze Key");
+        room5107H(true);
+      } else if(playerChoice.Contains("INVENTORY")) {
+        printInventory();
+      } else {
+        Console.WriteLine(Script.inputError);
+      }
+    }
   }
 
   private static void room61U770N7() {
     Console.WriteLine(Script.decisionSeparator);
+    Console.WriteLine(Script.room61U770N7.entrance);
+    roomsExplored["61U770N7"] = true;
 
+    while(true) {
+      playerChoice = getChoice("What would you like to do?");
+
+      if(playerChoice.Contains("3NV7") || playerChoice.Contains("WEST")) {
+        room3NV7();
+      } else if(playerChoice.Contains("LU57") || playerChoice.Contains("SOUTH")) {
+        roomLU57();
+      } else if(playerChoice.Contains("WR47H") || playerChoice.Contains("EAST")) {
+        roomWR47H();
+      } else if(playerChoice.Contains("EAT") || playerChoice.Contains("DRINK")) {
+        Console.WriteLine(Script.room61U770N7.ateFood);
+        conclusionDead();
+      } else if(playerChoice.Contains("INVENTORY")) {
+         printInventory();
+      } else {
+        Console.WriteLine(Script.inputError);
+      }
+    }
   }
 
   private static void room4C3D14() {
