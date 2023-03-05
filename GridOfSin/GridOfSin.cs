@@ -99,7 +99,9 @@ class Script
     public static string previous =
     "\nThis is the room you started in. It is a small, dark dungeon-like chamber. The walls are made of cold, gray stone, and the " +
     "\nonly light comes from a dim light bulb, which hangs from a thin cable. The air in the room is thick, and a sense of dread " +
-    "\nhangs in it.";
+    "\nhangs in it."+
+
+    "\n\nThere is a flashlight on the ground in the one corner of the dungeon.";
 
     public static string navigation =
     "\nThere are two thick wooden doors: one is marked as \"PR1D3\" (North), while the other is marked as \"6R33D\" (East). ";
@@ -1410,6 +1412,7 @@ class GridOfSin
       {
         Console.WriteLine(Script.roomWR47H.wolfDeath);
         playerInventory.Add("Golden Key");
+        wolfDead = true;
         break;
       }
 
