@@ -367,7 +367,7 @@ class HauntedHouseEscape
   {
     Console.WriteLine("\n\nThe Basement:");
     Console.WriteLine("-----------:");
-    Console.WriteLine("You are in the basement and engaging a battle with the beast. It will nost let you escape.");
+    Console.WriteLine("You are in the basement and engaging a battle with the beast. It will not let you escape.");
     Console.WriteLine("Your only choice is to fight the beast. An exit leading out, but the beast is blocking your exit.");
   } // End of theBasementView()
 
@@ -388,7 +388,7 @@ class HauntedHouseEscape
     Console.WriteLine("sensation and pain were unbearable, but you know you must fight this beast to get out of this dungeon.\n");
 
     Console.WriteLine("The battle to the death is about to begin!\n");
-    Console.WriteLine($"Your stats: Player's currrent health = {playerCurrentHealth} out of {playerMaxHealth}");
+    Console.WriteLine($"Your stats: Player's current health = {playerCurrentHealth} out of {playerMaxHealth}");
 
     // NOTE: This and the following two lines of code do the same thing, but coded differently.  
     Console.WriteLine($"Monster's stat: Monster's current health = {monsterCurrentHealth} out of {monsterMaxHealth}");

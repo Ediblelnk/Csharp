@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 class Script {
   public static string decisionSeparator =
@@ -38,6 +39,17 @@ class Script {
   "\nYOU HAVE DIED. " +
   "\n\nYour corpse will be forever lost to the dungeon, held in company with the humanoids and dark magic beings " +
   "living here.";
+
+  public static string winMsg =
+  "YOU HAVE WON!" +
+  "\n\nCongratulations, you have escaped the dungeon. I hope you enjoyed!";
+
+  public static string credits =
+  "----------------------------------------------" +
+  "\n| Grid of Sins                               |" +
+  "\n| Designed and Implemented by Peter Schaefer |" +
+  "\n| CSC 240, Project #2                        |"+
+  "\n----------------------------------------------";
 
   public class roomR3GR37 {
     public static string initial = 
@@ -177,14 +189,100 @@ class Script {
     public static string threeKeys1 =
     "\nYou grab the three keys you have collected: the bronze key, the silver key, and the gold key and place them into the lock at the center of the room. You hear the lock click open, and you are able to release it from holding the hatch.\n\nYou grab the rusty hatch and use all your might to flip it open. It reveals a ladder, built into the floor, going down unto the depths below. You don't know what it might hold, but it surely must  be better than the hell that you just went through.\n\nYou mount the ladder, and start descending into the darkness. As you descend, you start to hear the sound of a search party. You hear your name being called; they are searching for you! As you continue going down, you are able to see their search lights shining up at you.";
 
-    // "[NAME], is that you? Oh my god, it is you! We are so glad we have found you!"
+    public static string foundYou(string name) {
+     return name + ", is that you? Oh my god, it is you! We are so glad we have found you!";
+    }
 
     public static string threeKeys2 =
     "\nYour heart races with excitement and gratitude as you make your way towards the sound of their voices. As you emerge from the ladder and rejoin your friends, you feel overwhelmed with gratitude and a renewed sense of appreciation for your life.";
   }
 
   public class roomWR47H {
+    public static string initial =
+    "\nAs you open the door marked \"WR47H\", you hear a low, rumbling growl come from the dark room. You open your eyes wide and try to get a good look at the shadowy room. Your eyes scan until you spot a huge wolf, its gray fur bristling like a porcupine, glaring at you with stone blue eyes. It opens its maw, and you see a huge row of razor-sharp teeth, sharpened to a point.";
 
+    public static string previousFlee =
+    "You enter the \"WR47H\" room. The wolf is still there, making a low rumbling growl at you from the far corner of the dungeon room.";
+
+    public static string previousFight =
+    "You enter the \"WR47H\" room. The wolf's lifeless corpse is still there. There are now flies sucking on the wolf's eyeballs and tongue.";
+
+    public static string fightOrFlee =
+    "\nIt seems that you have two options: fight it or flee.";
+
+    public static string playerDeath =
+    "\nYou put up a good fight, but you are no match against its powerful jaws, and its robust build. The beast overpowers you, unleashing its gruesome wrath. You feel its sharp claws and teeth dig into your flesh, tearing you apart in a violent display.";
+
+    public static string wolfDeath =
+    "\nThe wolf attempts to go for another strike, but it collapses onto the floor, choking and wheezing. You watch as the wolf slowly loses its life, bloodied and battered. Right before its corpse relaxes, it spits out a golden key. You wait until you are sure that the beast is dead, and you grab the golden key.";
+
+    public static string navigation =
+    "\nThere are two thick wooden doors: one is marked as \"61U770N7\" (West), while the other is marked as \"4C3D14\" (South).";
+
+    public class gunAttacks {
+      public static string prepare =
+      "\nFueled by the rush of adrenaline from a life or death scenario, you attempt to defend yourself as the beast looms closer. You grab your gun that you got from the humanoid in the \"3NVY\" room and aim it at the beast.";
+
+      public static string heavy =
+      "\nYou fire the gun with a loud CRACK, and strike the wolf in the skull, causing it to let out a huge bellowing cry. Blood oozes out of the raw wound.";
+
+      public static string medium =
+      "\nYou fire the gun with a loud CRACK, and strike the wolf in the hind quarters. It releases a furious snarl, and lunges towards you.";
+
+      public static string weak =
+      "\nYou fire the gun with a loud CRACK, and graze the wolf's back. It barely even notices the impact, and goes in for an attack.";
+
+      public static string miss =
+      "\nYou fire the gun, but you completely miss the wolf. Hearing the loud noise causes the wolf to become even angrier.";
+    }
+
+    public class daggerAttacks {
+      public static string prepare =
+      "\nYou pull your dagger out and point it towards the wolf, preparing for the collision between you two.";
+
+      public static string heavy =
+      "\nYou thrust the dagger in the direction of the wolf's chest. Your blade finds its mark, and pulls apart the thick hide protecting this beast, revealing the pulsing and bloody inside of its chest. The wolf lets out a meek whimper, then opens in maw, revealing a huge row of jagged teeth.";
+
+      public static string medium =
+      "\nCaught in an imbalanced position, you point the dagger towards the wolf. The dagger strikes the side of the wolf's shoulder, causing it to wince in pain. However, the beast soon recovers and goes in for a strike.";
+
+      public static string weak =
+      "\nTired, you attempt to stab the wolf, but you only inflict a minor cut in the wolf's hide. Indifferent, the wolf goes in to murder its attacker: you.";
+
+      public static string miss =
+      "\nYou attempt to harm the wolf using the dagger, but it doesn't work at all. You don't even penetrate the wolf's hide, and only serve to increase its desire to rip you to shreds.";
+    }
+
+    public class fistAttacks {
+      public static string prepare =
+      "\nWith nothing but your fists, you prepare to fight the wolf.";
+
+      public static string medium =
+      "\nYou pull your fist back and plunge it forward. You connect with the side of the beast's skull, but the wolf merely shakes it off and lunges towards you.";
+
+      public static string weak =
+      "\nYou attempt to punch the wolf, but your punch doesn't have enough oomph behind it, and makes a mild thump when it connects with the wolf. The wolf barely notices, and continues its assault on your body.";
+
+      public static string miss =
+      "\nYou attempt to punch the wolf, but your arm easily gets redirected out of the way by the wolf's violent movements.";
+    }
+
+    public class wolfAttacks {
+      public static string prepare =
+      "\nThe wolf advances towards you, determined to eliminate the living thing in front of it. It lets out a huge howl.";
+
+      public static string heavy =
+      "\nThe wolf lunges at you with its muscular body. It quickly clamps down on your flesh, inflicting a deep wound in your gut. You scream in pain.";
+
+      public static string medium =
+      "\nThe wolf strikes you with a quick swipe of its paw, creating a deep gash in your arm as it does so.";
+
+      public static string weak =
+      "\nThe wolf advances and attempts to take a chunk out of your person. However, you are able to react and flex your body out of the way enough to just endure some mild scratches and impacts.";
+
+      public static string miss =
+      "\nThe wolf staggers back, catching its breath. You are able to get another attack in before it strikes.";
+    }
   }
 }
 
@@ -192,12 +290,14 @@ class GridOfSin {
   private static Dictionary<string, bool> roomsExplored = new Dictionary<string, bool>(9);
   private static bool acceptedVial = false;
   private static bool satInChair = false;
+  private static bool wolfDead = false;
+  private static int wolfHealth = 200;
+  private static int wolfDamage = 36;
+  private static Dictionary<string, int> weaponDamage = new Dictionary<string, int>(3){{"gun", 100}, {"dagger", 68}, {"fist", 36}};
   private static List<string> playerInventory = new List<string>();
-  private static int playerHealth;
+  private static int playerHealth = 100;
   private static string playerName = "";
   private static string playerChoice = "";
-  // private static int trapDamage;
-  // private static int trapDamageRange;
 
 
 
@@ -207,16 +307,19 @@ class GridOfSin {
     roomR3GR37();
   }
 
+  /*
+  resets variables the might have changed during the previous session
+  */
   private static void setGameData() {
     roomsExplored = setRoomsExplored();
     acceptedVial = false;
     satInChair = false;
+    wolfDead = false;
+    wolfHealth = 200;
     playerInventory = new List<string>();
     playerHealth = 100;
-    playerName = "";
     playerChoice = "";
-    // trapDamage = 25;
-    // trapDamageRange = 24;
+
   }
 
   private static Dictionary<string, bool> setRoomsExplored() {
@@ -231,8 +334,12 @@ class GridOfSin {
 
   private static void printInventory() {
     Console.WriteLine("\nCurrent Inventory\n=================");
-    foreach(string item in playerInventory) {
-      Console.WriteLine("-  " + item);
+    if(playerInventory[0] == "") {
+      Console.WriteLine("[Your inventory is empty]");
+    } else {
+      foreach(string item in playerInventory) {
+        Console.WriteLine("-  " + item);
+      }
     }
     Console.WriteLine("=================");
   }
@@ -330,7 +437,7 @@ class GridOfSin {
             roomPR1D3(true);
           } else if(playerChoice.Contains("YES") || playerChoice.Contains("CONTINUE")) {
             Console.WriteLine(Script.roomPR1D3.lookAtMirror3);
-            conclusionDead();
+            conclusion(false);
           } else if(playerChoice.Contains("INVENTORY")) {
             printInventory();
           } else {
@@ -362,7 +469,7 @@ class GridOfSin {
           break;
         } else if(playerChoice.Contains("RUBY")) {
           Console.WriteLine(Script.room6R33D.rubyNecklace);
-          conclusionDead();
+          conclusion(false);
         } else if(playerChoice.Contains("INVENTORY")) {
           printInventory();
         } else {
@@ -403,7 +510,7 @@ class GridOfSin {
 
         if(playerChoice.Contains("YES")) {
           Console.WriteLine(Script.room3NV7.acceptGun);
-          conclusionDead();
+          conclusion(false);
         } else if(playerChoice.Contains("INVENTORY")) {
           printInventory();
         } else if(playerChoice.Contains("NO")) {
@@ -415,7 +522,7 @@ class GridOfSin {
 
             if(playerChoice.Contains("YES")) {
               Console.WriteLine(Script.room3NV7.acceptDagger);
-              conclusionDead();
+              conclusion(false);
             } else if(playerChoice.Contains("INVENTORY")) {
               printInventory();
             } else if(playerChoice.Contains("NO")) {
@@ -427,7 +534,7 @@ class GridOfSin {
 
                 if(playerChoice.Contains("NO")) {
                   Console.WriteLine(Script.room3NV7.rejectKey);
-                  conclusionDead();
+                  conclusion(false);
                 } else if(playerChoice.Contains("INVENTORY")) {
                   printInventory();
                 } else if(playerChoice.Contains("YES")) {
@@ -574,7 +681,7 @@ class GridOfSin {
         roomWR47H();
       } else if(playerChoice.Contains("EAT") || playerChoice.Contains("DRINK")) {
         Console.WriteLine(Script.room61U770N7.ateFood);
-        conclusionDead();
+        conclusion(false);
       } else if(playerChoice.Contains("INVENTORY")) {
          printInventory();
       } else {
@@ -585,16 +692,163 @@ class GridOfSin {
 
   private static void room4C3D14() {
     Console.WriteLine(Script.decisionSeparator);
+    Console.WriteLine(Script.room4C3D14.entrance);
+    
+    while(true) {
+      playerChoice = getChoice("What would you like to do?");
 
+      if(playerChoice.Contains("HATCH") || playerChoice.Contains("KEY")) {
+        if(playerInventory.Contains("Silver Key") && playerInventory.Contains("Gold Key") && playerInventory.Contains("Gold Key")) {
+          Console.WriteLine(Script.room4C3D14.threeKeys1);
+          Console.WriteLine(Script.room4C3D14.foundYou(playerName));
+          Console.WriteLine(Script.room4C3D14.threeKeys2);
+
+        } else if(playerChoice.Contains("WR47H") || playerChoice.Contains("NORTH")) {
+          roomWR47H();
+        } else if(playerChoice.Contains("LU57") || playerChoice.Contains("WEST")) {
+          roomLU57();
+        } else if(playerChoice.Contains("5107H") || playerChoice.Contains("SOUTH")) {
+          room5107H();
+        } else if(playerChoice.Contains("INVENTORY")) {
+          printInventory();
+        } else {
+          Console.WriteLine(Script.inputError);
+        }
+      }
+    }
   }
 
   private static void roomWR47H() {
     Console.WriteLine(Script.decisionSeparator);
+    if(wolfDead && roomsExplored["WR47H"]) {
+      Console.WriteLine(Script.roomWR47H.previousFight);
+    } else if(roomsExplored["WR47H"]) {
+      Console.WriteLine(Script.roomWR47H.previousFlee);
+    } else {
+      Console.WriteLine(Script.roomWR47H.initial);
+      roomsExplored["WR47H"] = true;
+    }
+
+    if(!wolfDead) {
+      while(true) {
+        playerChoice = getChoice("What would you like to do?");
+
+        if(playerChoice.Contains("FIGHT")) {
+          if(playerInventory.Contains("Gun")) wolfFight("gun");
+          else if(playerInventory.Contains("Dagger")) wolfFight("dagger");
+          else wolfFight("fist");
+        } else if(playerChoice.Contains("FLEE")) {
+          roomWR47H_navigation();
+        } else if(playerChoice.Contains("INVENTORY")) {
+          printInventory();
+        } else {
+          Console.WriteLine(Script.inputError);
+        }
+      }
+    } else {
+      roomWR47H_navigation();
+    }
+  }
+
+  private static void roomWR47H_navigation() {
+    Console.WriteLine(Script.roomWR47H.navigation);
+    while(true) {
+      playerChoice = getChoice("What would you like to do?");
+
+      if(playerChoice.Contains("61U770N7") || playerChoice.Contains("WEST")) {
+        room61U770N7();
+      } else if(playerChoice.Contains("4C3D14") || playerChoice.Contains("SOUTH")) {
+        room4C3D14();
+      } else if(playerChoice.Contains("INVENTORY")) {
+        printInventory();
+      } else {
+        Console.WriteLine(Script.inputError);
+      }
+    }
+  }
+
+  public static void wolfFight(string weapon) {
+    Random rand = new Random();
+    int damage;
+
+    while(true) {
+      //player's attack
+      Console.WriteLine($"{playerName}'s attack:\n==============\n");
+      damage = rand.Next(0, weaponDamage[weapon]);
+      wolfHealth -= damage;
+      Console.WriteLine(getDamageText(weapon, damage));
+      Console.WriteLine($"\n[ You did {damage} damage to the wolf ]");
+      if(wolfHealth > 1) {
+        Console.WriteLine($"[ Wolf's health: {wolfHealth} ]");
+        Console.WriteLine($"[ {playerName}'s health: {playerHealth} ]");
+      }
+
+      if(wolfHealth < 1) {
+        Console.WriteLine(Script.roomWR47H.wolfDeath);
+        playerInventory.Add("Golden Key");
+        break;
+      }
+
+      Console.WriteLine("[ PRESS ENTER TO CONTINUE ]");
+      Console.ReadLine();
+
+      //wolf's attack
+      Console.WriteLine("Wolf's attack:\n==============\n");
+      damage = rand.Next(0, wolfDamage);
+      playerHealth -= damage;
+      Console.WriteLine(getWolfText(damage));
+      Console.WriteLine($"\n[ The wolf did {damage} damage to you ]");
+      if(playerHealth > 1) {
+        Console.WriteLine($"[ Wolf's health: {wolfHealth} ]");
+        Console.WriteLine($"[ {playerName}'s health: {playerHealth} ]");
+      }
+
+      if(playerHealth < 1) {
+        Console.WriteLine(Script.roomWR47H.playerDeath);
+        conclusion(false);
+      }
+
+      Console.WriteLine("[ PRESS ENTER TO CONTINUE ]");
+      Console.ReadLine();
+    }
+
 
   }
 
-  private static void conclusionDead() {
-    Console.WriteLine(Script.deathMsg);
+  public static string getDamageText(string weapon, int damage) {
+    switch(weapon) {
+      case "gun":
+        if(damage > (2*weaponDamage["gun"]/3)) return(Script.roomWR47H.gunAttacks.heavy);
+        if(damage > (weaponDamage["gun"]/3)) return(Script.roomWR47H.gunAttacks.medium);
+        if(damage > 0) return(Script.roomWR47H.gunAttacks.weak);
+        else return(Script.roomWR47H.gunAttacks.miss);
+      case "dagger":
+        if(damage > (2*weaponDamage["dagger"]/3)) return(Script.roomWR47H.daggerAttacks.heavy);
+        if(damage > (weaponDamage["dagger"]/3)) return(Script.roomWR47H.daggerAttacks.medium);
+        if(damage > 0) return(Script.roomWR47H.daggerAttacks.weak);
+        else return(Script.roomWR47H.daggerAttacks.miss);
+      case "fist":
+        if(damage > (weaponDamage["fist"]/2)) return(Script.roomWR47H.fistAttacks.medium);
+        if(damage > 0) return(Script.roomWR47H.fistAttacks.weak);
+        else return(Script.roomWR47H.daggerAttacks.miss);
+      default:
+        return("[ ERROR IN DAMAGE LOOKUP TABLE]");
+    }
+  }
+
+  public static string getWolfText(int damage) {
+    if(damage > (2*wolfDamage/3)) return(Script.roomWR47H.wolfAttacks.heavy);
+    if(damage > (wolfDamage/3)) return(Script.roomWR47H.wolfAttacks.medium);
+    if(damage > (0)) return(Script.roomWR47H.wolfAttacks.weak);
+    else return(Script.roomWR47H.wolfAttacks.miss);
+  }
+
+  private static void conclusion(bool win) {
+    if(win) {
+      Console.WriteLine(Script.winMsg);
+    } else {
+      Console.WriteLine(Script.deathMsg);
+    }
 
     while(true) {
       playerChoice = getChoice("Would you like to play again?");
@@ -609,6 +863,9 @@ class GridOfSin {
   }
 
   public static void credits() {
-    Console.WriteLine("THIS IS THE CREDITS");
+    Console.WriteLine(Script.decisionSeparator);
+    Console.WriteLine(Script.credits);
+
+    Environment.Exit(1);
   }
 }
