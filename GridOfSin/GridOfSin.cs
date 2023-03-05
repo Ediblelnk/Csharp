@@ -752,7 +752,7 @@ class GridOfSin
 
       if (playerChoice.Contains("NO") || playerChoice.Contains("NOT"))
       {
-        Console.WriteLine("\nYou stop looking at the mirror, deciding is wasn't helpful in escaping this dungeon.");
+        Console.WriteLine("\nYou stop looking at the mirror, deciding it wasn't helpful in escaping this dungeon.");
         roomPR1D3(true);
       }
       else if (playerChoice.Contains("YES") || playerChoice.Contains("CONTINUE"))
@@ -766,7 +766,7 @@ class GridOfSin
 
           if (playerChoice.Contains("NO") || playerChoice.Contains("NOT"))
           {
-            Console.WriteLine("\nYou stop looking at the mirror, deciding is wasn't helpful in escaping this dungeon.");
+            Console.WriteLine("\nYou stop looking at the mirror, deciding it wasn't helpful in escaping this dungeon.");
             roomPR1D3(true);
           }
           else if (playerChoice.Contains("YES") || playerChoice.Contains("CONTINUE"))
