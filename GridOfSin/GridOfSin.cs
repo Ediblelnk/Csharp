@@ -1,13 +1,36 @@
-﻿using System;
+﻿/*
+  The Grid of Sins
+  by Peter Schaefer
+  CSC 240
+  March 2023
+  Project #2
+                     
+ABOUT THE GAME:
+You were exploring a cave, when all of a sudden, you get hit on the head from behind, rendering you unconscious. 
+When you wake up, you are in a dungeon room with a dim light. It is clear you need to get out of this place, but 
+through what doors must you venture through in order to find an exit?
+
+WARNING:
+This game is a horror game. It contains explicit descriptions and mature themes (rated: PG-13).
+As such, under 13 should not be playing this game without parental consent and oversight!
+
+PURPOSE:
+Provide an intro to C# programming using an Interactive Fiction (IF) text-based game format.
+*/
+
+using System;
 using System.Collections.Generic;
 
+/*
+Collection of game script lines, separated from the logic for easier understanding of how each room works
+*/
 class Script
 {
   public static string decisionSeparator =
   "=============================\n";
 
   public static string introduction =
-  "Grid of Sins" +
+  "The Grid of Sins" +
   "\nby Peter Schaefer" +
   "\nCSC 240" +
   "\nProject #2" +
@@ -29,7 +52,9 @@ class Script
   "\nYou were exploring a cave, when all of a sudden, you get hit on the head from behind, rendering you unconscious. When " +
   "\nyou wake up, you are in a dungeon room with a dim light. It is clear you need to get out of this place, but through what " +
   "\ndoors must you venture through in order to find an exit?" +
+
   "\n\nCommands: enter [room name], go [full cardinal direction], yes, no, inventory, attack, look, etc." +
+
   "\n\n[Generally, you will be able to type a sentence, which will be checked for keywords to determine the command input]" +
   "\n=============================\n\n";
 
@@ -41,6 +66,7 @@ class Script
 
   public static string deathMsg =
   "\nYOU HAVE DIED. " +
+
   "\n\nYour corpse will be forever lost to the dungeon, held in company with the humanoids and dark magic beings " +
   "living here.";
 
@@ -52,9 +78,12 @@ class Script
   "----------------------------------------------" +
   "\n| Grid of Sins                               |" +
   "\n| Designed and Implemented by Peter Schaefer |" +
-  "\n| CSC 240, Project #2                        |" +
+  "\n| CSC 240, Project #2, March 2023            |" +
   "\n----------------------------------------------";
 
+  /*
+  This is the Regret room script. This is the starting room, so not much is happening
+  */
   public class roomR3GR37
   {
     public static string initial =
@@ -76,6 +105,9 @@ class Script
     "\nThere are two thick wooden doors: one is marked as \"PR1D3\" (North), while the other is marked as \"6R33D\" (East). ";
   }
 
+  /*
+  This is the Pride room script. This room has a mirror that will kill the player if looked into long enough.
+  */
   public class roomPR1D3
   {
     public static string initial =
@@ -115,6 +147,9 @@ class Script
     "\n\nThe mirror is still in the room, complete with its carved frame.";
   }
 
+  /*
+  This is the Greed room script. This room requires the player to take the item that is less valuable: the golden glasses.
+  */
   public class room6R33D
   {
     public static string initial =
@@ -148,6 +183,9 @@ class Script
     "\nas \"5107H\" (East).";
   }
 
+  /*
+  This is the Envy room script. This is the offer of the gun, dagger, and the silver key. You need the silver key.
+  */
   public class room3NV7
   {
     public static string initial =
@@ -207,6 +245,9 @@ class Script
     "\nThere are two thick wooden doors: one is marked as \"PR1D3\" (South), while the other is marked as \"61U770N7\" (East).";
   }
 
+  /*
+  This is the Lust room script. This room poses no danger to the player. This room has an offer of a meaningless vial.
+  */
   public class roomLU57
   {
     public static string initial =
@@ -241,6 +282,9 @@ class Script
     "\nYou see the mix of broken glass and pink liquid from when you accepted the offer of the woman.";
   }
 
+  /*
+  This is the Sloth room script. This room contains trapped furniture that needs to be sat in to get the bronze key.
+  */
   public class room5107H
   {
     public static string initial =
@@ -278,6 +322,9 @@ class Script
     "\nneatly in the center of the room, which has a shiny object in the cushion of one chair. You are still drawn to it";
   }
 
+  /*
+  This is the Gluttony room script. This room contains poisonous food, that should NOT be eaten.
+  */
   public class room61U770N7
   {
     public static string entrance =
@@ -295,6 +342,9 @@ class Script
     "\nAs life fades from your eyes, you ask yourself what you could have done differently.";
   }
 
+  /*
+  This is the Acedia room script. This is the room from which the player will eventually escape.
+  */
   public class room4C3D14
   {
     public static string entrance =
@@ -327,6 +377,9 @@ class Script
     "\nyour friends, you feel overwhelmed with gratitude and a renewed sense of appreciation for your life.";
   }
 
+  /*
+  This is the Wrath room script. This room has a giant boss battle with a huge wolf. It helps very much to have the gun.
+  */
   public class roomWR47H
   {
     public static string initial =
@@ -355,6 +408,9 @@ class Script
     public static string navigation =
     "\nThere are two thick wooden doors: one is marked as \"61U770N7\" (West), while the other is marked as \"4C3D14\" (South).";
 
+    /*
+    This class contains attacks that happen when you have the GUN in your inventory
+    */
     public class gunAttacks
     {
       public static string prepare =
@@ -375,6 +431,9 @@ class Script
       "\nYou fire the gun, but you completely miss the wolf. Hearing the loud noise causes the wolf to become even angrier.";
     }
 
+    /*
+    This class contains attacks that happen when you have the DAGGER in your inventory
+    */
     public class daggerAttacks
     {
       public static string prepare =
@@ -398,6 +457,9 @@ class Script
       "\nincrease its desire to rip you to shreds.";
     }
 
+    /*
+    This class contains attacks that happen when you have no weapons in your inventory
+    */
     public class fistAttacks
     {
       public static string prepare =
@@ -415,6 +477,9 @@ class Script
       "\nYou attempt to punch the wolf, but your arm easily gets redirected out of the way by the wolf's violent movements.";
     }
 
+    /*
+    This class contains attacks that happen when the wolf attacks the player
+    */
     public class wolfAttacks
     {
       public static string prepare =
@@ -439,20 +504,44 @@ class Script
 
 class GridOfSin
 {
+  //this keeps track of the rooms which the player has and hasn't been to in order to use the correct prompts.
   private static Dictionary<string, bool> roomsExplored = new Dictionary<string, bool>(9);
+
+  //this keeps track of if the player has accepted the vial from the woman in the LUST room
   private static bool acceptedVial = false;
+
+  //this keeps track of if the player has sat in the chair in the SLOTH room.
   private static bool satInChair = false;
+
+  //this keeps track of if the player has killed the wolf in the WRATH room.
   private static bool wolfDead = false;
+
+  //this is how much health the wolf has, which is much more than the player health.
   private static int wolfHealth = 200;
+
+  //this is the maximum amount of damage that the wolf can do in a single attack
   private static int wolfDamage = 36;
+
+  //this is a reference for the different damages the player can do depending on which weapon they are in possession of
   private static Dictionary<string, int> weaponDamage = new Dictionary<string, int>(3) { { "gun", 76 }, { "dagger", 60 }, { "fist", 40 } };
+
+  //this keeps track of the player inventory
   private static List<string> playerInventory = new List<string>();
+
+  //this is how much health the player has to begin with
   private static int playerHealth = 100;
+
+  //the name of the player
   private static string playerName = "";
+
+  //variable to determine the input of the player
   private static string playerChoice = "";
 
 
 
+  /*
+  This is the MAIN function of the program. It sets up the variables, prints the introduction, and starts the player in the right room.
+  */
   public static void Main()
   {
     setGameData();
@@ -465,17 +554,19 @@ class GridOfSin
   */
   private static void setGameData()
   {
-    roomsExplored = setRoomsExplored();
-    acceptedVial = false;
-    satInChair = false;
-    wolfDead = false;
-    wolfHealth = 200;
-    playerInventory = new List<string>();
-    playerHealth = 100;
-    playerChoice = "";
-
+    roomsExplored = setRoomsExplored();     //sets all the rooms to unexplored
+    acceptedVial = false;                   //default to not have taken the vial
+    satInChair = false;                     //default to not have sat in the chair
+    wolfDead = false;                       //default to have the wolf alive until killed
+    wolfHealth = 200;                       //reset the wolf's health
+    playerInventory = new List<string>();   //reset the player's inventory
+    playerHealth = 100;                     //reset the player's health
   }
 
+
+  /*
+  Helper function to reset all of the rooms to unexplored
+  */
   private static Dictionary<string, bool> setRoomsExplored()
   {
     Dictionary<string, bool> ret = new Dictionary<string, bool>(9);
@@ -488,6 +579,10 @@ class GridOfSin
     return ret;
   }
 
+
+  /*
+  Helper function to print the player's current inventory
+  */
   private static void printInventory()
   {
     Console.WriteLine("\nCurrent Inventory\n=================");
@@ -505,6 +600,10 @@ class GridOfSin
     Console.WriteLine("=================");
   }
 
+
+  /*
+  Prints the introduction to the game
+  */
   private static void introduction()
   {
     Console.Clear();  //clear console for better immersion
@@ -518,14 +617,22 @@ class GridOfSin
     Console.WriteLine(Script.aboutGame);
   }
 
+
+  /*
+  Gets and returns the player's input using the passed prompt. CONVERTS ALL INPUT INTO UPPERCASE, SO COMMANDS ARE NOT CASE-SENSITIVE
+  */
   private static string getChoice(string prompt)
   {
     Console.Write("\n\n" + prompt + "  ");
     return (Console.ReadLine() ?? "").ToUpper();
   }
 
+  /*
+  This is the room the player starts in. There is not much to do except look around and go into a different room
+  */
   private static void roomR3GR37()
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     if (roomsExplored["R3GR37"])
     {
@@ -538,6 +645,7 @@ class GridOfSin
     }
     Console.WriteLine(Script.roomR3GR37.navigation);
 
+    //gets input from the player to determine what they want to do
     while (true)
     {
       playerChoice = getChoice("What would you like to do?");
@@ -573,8 +681,13 @@ class GridOfSin
     }
   }
 
+
+  /*
+  This is the PRIDE room. The only meaningful thing in this room is a mirror which could kill the player
+  */
   private static void roomPR1D3(bool exitMirror = false)
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     if (!exitMirror)
     {
@@ -590,6 +703,7 @@ class GridOfSin
     }
     Console.WriteLine(Script.roomPR1D3.navigation);
 
+    //gets input from the player to determine what they want to do
     while (true)
     {
       playerChoice = getChoice("What would you like to do?");
@@ -597,7 +711,7 @@ class GridOfSin
       if (playerChoice.Contains("LOOK") || playerChoice.Contains("GAZE") || playerChoice.Contains("MIRROR"))
       {
         Console.WriteLine(Script.decisionSeparator);
-        mirrorDialogue();
+        mirrorDialogue(); //subfunction to handle the mirror choices
       }
       else if (playerChoice.Contains("R3GR37") || playerChoice.Contains("SOUTH"))
       {
@@ -622,34 +736,42 @@ class GridOfSin
     }
   }
 
+
+  /*
+  Helper function to handle the dialogue for when the player looks into the mirror
+  */
   private static void mirrorDialogue()
   {
+    //first time looking into the mirror
     Console.WriteLine(Script.roomPR1D3.lookAtMirror1);
 
+    //second time looking into the mirror
     while (true)
     {
       playerChoice = getChoice("Continue looking at the mirror?");
 
       if (playerChoice.Contains("NO") || playerChoice.Contains("NOT"))
       {
-        //need to add a message for ending looking at mirror
+        Console.WriteLine("\nYou stop looking at the mirror, deciding is wasn't helpful in escaping this dungeon.");
         roomPR1D3(true);
       }
       else if (playerChoice.Contains("YES") || playerChoice.Contains("CONTINUE"))
       {
         Console.WriteLine(Script.roomPR1D3.lookAtMirror2);
 
+        //third and final time looking into the mirror
         while (true)
         {
           playerChoice = getChoice("Continue looking at the mirror?");
 
           if (playerChoice.Contains("NO") || playerChoice.Contains("NOT"))
           {
-            //need to add a message for ending looking at mirror
+            Console.WriteLine("\nYou stop looking at the mirror, deciding is wasn't helpful in escaping this dungeon.");
             roomPR1D3(true);
           }
           else if (playerChoice.Contains("YES") || playerChoice.Contains("CONTINUE"))
           {
+            //the player looked at the mirror for too long and got murdered
             Console.WriteLine(Script.roomPR1D3.lookAtMirror3);
             conclusion(false);
           }
@@ -674,8 +796,13 @@ class GridOfSin
     }
   }
 
+
+  /*
+  This is the GREED room. This room forces the player to choose between to valuable items; they must choose the lower value item, which is the golden glasses.
+  */
   private static void room6R33D()
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     if (roomsExplored["6R33D"])
     {
@@ -686,17 +813,20 @@ class GridOfSin
       Console.WriteLine(Script.room6R33D.initial);
       roomsExplored["6R33D"] = true;
 
+      //first time in the room, require the player to pick between the items
       while (true)
       {
         playerChoice = getChoice("Will you take the Ruby Necklace or Golden Glasses?");
 
+        //the golden glasses is the correct choice because it is less valuable than a ruby necklace
         if (playerChoice.Contains("GOLD"))
         {
           Console.WriteLine(Script.decisionSeparator);
           Console.WriteLine(Script.room6R33D.goldenGlasses);
           playerInventory.Add("Golden Glasses");
-          break;
+          break; //break out of the input loop to move on to next choice
         }
+        //the ruby necklace is the INcorrect choice because it is more valuable than gold glasses
         else if (playerChoice.Contains("RUBY"))
         {
           Console.WriteLine(Script.decisionSeparator);
@@ -714,6 +844,7 @@ class GridOfSin
       }
     }
 
+    //get input for navigation of the player
     while (true)
     {
       playerChoice = getChoice("What would you like to do?");
@@ -741,8 +872,13 @@ class GridOfSin
     }
   }
 
+  /*
+  This is the ENVY room. This is where the player is offered a GUN, a DAGGER, and a KEY. 
+  They MUST take the key, and should try to take either the dagger or the gun, but neither is guaranteed to be given to them.
+  */
   private static void room3NV7()
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     if (roomsExplored["3NV7"])
     {
@@ -750,6 +886,7 @@ class GridOfSin
     }
     else
     {
+      //randomly determine whether a player can or cannot get the gun/dagger
       Random rand = new Random();
       Console.WriteLine(Script.room3NV7.initial);
       roomsExplored["3NV7"] = true;
@@ -761,6 +898,7 @@ class GridOfSin
 
         if (playerChoice.Contains("YES"))
         {
+          //player has a 1/3 chance of being able to get the gun
           if (rand.Next(0, 3) == 2)
           {
             Console.WriteLine(Script.decisionSeparator);
@@ -775,6 +913,7 @@ class GridOfSin
             conclusion(false);
           }
         }
+        //player can ALWAYS reject the gun with no penalty
         else if (playerChoice.Contains("NO"))
         {
           Console.WriteLine(Script.decisionSeparator);
@@ -798,6 +937,7 @@ class GridOfSin
 
         if (playerChoice.Contains("YES"))
         {
+          //player has a 1/2 chance of getting the dagger
           if (rand.Next(0, 2) == 1)
           {
             Console.WriteLine(Script.decisionSeparator);
@@ -812,6 +952,7 @@ class GridOfSin
             conclusion(false);
           }
         }
+        //player can ALWAYS reject the offer of the dagger with no penalty
         else if (playerChoice.Contains("NO"))
         {
           Console.WriteLine(Script.decisionSeparator);
@@ -833,6 +974,7 @@ class GridOfSin
       {
         playerChoice = getChoice("Do you take the silver key?");
 
+        //player MUST take the silver key. If they reject it the game is not completable
         if (playerChoice.Contains("YES"))
         {
           Console.WriteLine(Script.decisionSeparator);
@@ -840,6 +982,7 @@ class GridOfSin
           playerInventory.Add("Silver Key");
           break;
         }
+        //if the player rejects the key they are KILLED
         else if (playerChoice.Contains("NO"))
         {
           Console.WriteLine(Script.decisionSeparator);
@@ -858,6 +1001,7 @@ class GridOfSin
       }
     }
 
+    //three offers have taken place, now get navigation from the player
     Console.WriteLine(Script.room3NV7.navigation);
     while (true)
     {
@@ -882,8 +1026,14 @@ class GridOfSin
     }
   }
 
+
+  /*
+  This is the LUST room. This room has a woman which offers the player to get a vial.
+  The interaction is mostly meaningless, and just filler for more immersion.
+  */
   private static void roomLU57()
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     if (roomsExplored["LU57"])
     {
@@ -897,6 +1047,7 @@ class GridOfSin
 
       while (true)
       {
+        //the player can accept or reject the vial, with no consequence on the game
         playerChoice = getChoice("Do you accept the vial?");
 
         if (playerChoice.Contains("YES"))
@@ -924,6 +1075,7 @@ class GridOfSin
     }
     Console.WriteLine(Script.roomLU57.navigation);
 
+    //get the navigation from the player, this room is the CENTRAL room for the dungeon, so many doors
     while (true)
     {
       playerChoice = getChoice("What would you like to do?");
@@ -955,8 +1107,13 @@ class GridOfSin
     }
   }
 
+  /*
+  This is the SLOTH room. This is the location of the bronze key, which is required to get in order to complete the game.
+  The player SHOULD, but doesn't have to, sit in the chair. They could always leave and then come back and sit.
+  */
   private static void room5107H(bool exitChair = false)
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     if (roomsExplored["5107H"] && satInChair && !exitChair)
     {
@@ -973,15 +1130,17 @@ class GridOfSin
     }
     Console.WriteLine(Script.room5107H.navigation);
 
+    //get navigation / decision for if the player wants to sit in the chair.
     while (true)
     {
       playerChoice = getChoice("What would you like to do?");
 
+      //the player can only sit in the chair once, in order to get the key.
       if (!satInChair && (playerChoice.Contains("SIT") || playerChoice.Contains("CHAIR")))
       {
         Console.WriteLine(Script.decisionSeparator);
         satInChair = true;
-        chairDialogue();
+        chairDialogue(); //goes to a helper function for the chair dialogue.
       }
       else if (playerChoice.Contains("6R33D") || playerChoice.Contains("WEST"))
       {
@@ -1002,14 +1161,19 @@ class GridOfSin
     }
   }
 
+  /*
+  Helper function for the chair dialogue which happens when the player sits in the chair in the SLOTH room.
+  */
   private static void chairDialogue()
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.room5107H.sitChair);
 
     while (true)
     {
       playerChoice = getChoice("What would you like to do?");
 
+      //the player CANNOT do anything until they escape the chair. (aside from looking at their inventory)
       if (playerChoice.Contains("REACH") || playerChoice.Contains("TRY"))
       {
         Console.WriteLine(Script.decisionSeparator);
@@ -1028,14 +1192,19 @@ class GridOfSin
     }
   }
 
+  /*
+  This is the GLUTTONY room. This room contains food which is poisonous and SHOULD NOT be eaten, lest the player simply DIE
+  */
   private static void room61U770N7()
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     Console.WriteLine(Script.room61U770N7.entrance);
     roomsExplored["61U770N7"] = true;
 
     while (true)
     {
+      //the player can, but does not have to, eat the room in the room. They could also just leave the room
       playerChoice = getChoice("What would you like to do?");
 
       if (playerChoice.Contains("3NV7") || playerChoice.Contains("WEST"))
@@ -1052,6 +1221,7 @@ class GridOfSin
       }
       else if (playerChoice.Contains("EAT") || playerChoice.Contains("DRINK"))
       {
+        //the player ate the room and died.
         Console.WriteLine(Script.decisionSeparator);
         Console.WriteLine(Script.room61U770N7.ateFood);
         conclusion(false);
@@ -1067,13 +1237,18 @@ class GridOfSin
     }
   }
 
+  /*
+  This is the ACEDIA room. This is the escape room, but it requires that the player have the gold, silver, and bronze key in order to escape.
+  */
   private static void room4C3D14()
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     Console.WriteLine(Script.room4C3D14.entrance);
 
     while (true)
     {
+      //determines what the player want to do, and if they have the keys required to complete the game.
       playerChoice = getChoice("What would you like to do?");
 
       if (playerChoice.Contains("HATCH") || playerChoice.Contains("KEY"))
@@ -1089,9 +1264,11 @@ class GridOfSin
         }
         else
         {
+          //very specific error for when the player tries to open the hatch without having the three keys
           Console.WriteLine(Script.keyError);
         }
       }
+      //these are all navigation choices for the player to go to a different room
       else if (playerChoice.Contains("WR47H") || playerChoice.Contains("NORTH"))
       {
         roomWR47H();
@@ -1104,6 +1281,7 @@ class GridOfSin
       {
         room5107H();
       }
+      //inventory and error options
       else if (playerChoice.Contains("INVENTORY"))
       {
         printInventory();
@@ -1115,8 +1293,13 @@ class GridOfSin
     }
   }
 
+  /*
+  This is the WRATH room. This is an important room, because the player MUST eventually fight the wolf in order to win the game.
+  It is recommended that the player fight the wolf with either a GUN or a DAGGER, because beating the wolf with fists is extremely hard.
+  */
   private static void roomWR47H()
   {
+    //prints the contextualized introduction into the room
     Console.WriteLine(Script.decisionSeparator);
     if (wolfDead && roomsExplored["WR47H"])
     {
@@ -1132,20 +1315,24 @@ class GridOfSin
       roomsExplored["WR47H"] = true;
     }
 
+    //The wolf has not been fought yet
     if (!wolfDead)
     {
       while (true)
       {
         playerChoice = getChoice(Script.roomWR47H.fightOrFlee + "\nWhat would you like to do?");
 
+        //the player decides to fight the wolf
         if (playerChoice.Contains("FIGHT"))
         {
           Console.WriteLine(Script.decisionSeparator);
           if (playerInventory.Contains("Gun")) wolfFight("gun");
           else if (playerInventory.Contains("Dagger")) wolfFight("dagger");
           else wolfFight("fist");
-          break;
+          break; //after wolf fight is completed (this implies the player won to break;), go to navigation
         }
+
+        //the player decides to flee to another room, likely to better prepare themselves for the fight
         else if (playerChoice.Contains("FLEE"))
         {
           roomWR47H_navigation();
@@ -1160,11 +1347,17 @@ class GridOfSin
         }
       }
     }
+
+    //specialized helper function for the navigation of the WRATH room, used to minimize code repetition
     roomWR47H_navigation();
   }
 
+  /*
+  Helper function which gets the navigation from the WRATH room. Used to minimize code repetition.
+  */
   private static void roomWR47H_navigation()
   {
+    //prompt the player for their choice of navigation
     Console.WriteLine(Script.roomWR47H.navigation);
     while (true)
     {
@@ -1189,6 +1382,9 @@ class GridOfSin
     }
   }
 
+  /*
+  This is the fight between the player and the wolf. This is required to BEAT in order to complete the game.
+  */
   public static void wolfFight(string weapon)
   {
     Random rand = new Random();
@@ -1198,9 +1394,10 @@ class GridOfSin
     {
       //player's attack
       Console.WriteLine($"{playerName}'s attack:\n==============\n");
-      damage = rand.Next(0, weaponDamage[weapon]);
-      wolfHealth -= damage;
-      Console.WriteLine(getDamageText(weapon, damage));
+      damage = rand.Next(0, weaponDamage[weapon]); //determine possible damage based off of lookup dictionary
+      wolfHealth -= damage; //the wolf got hit this much
+
+      Console.WriteLine(getDamageText(weapon, damage)); //get the corresponding event which happened based on how much damage was done
       Console.WriteLine($"\n[ You did {damage} damage to the wolf ]");
       if (wolfHealth > 0)
       {
@@ -1208,6 +1405,7 @@ class GridOfSin
         Console.WriteLine($"[ {playerName}'s health: {playerHealth} ]");
       }
 
+      //the wolf has died if this is true, the player has WON the battle
       if (wolfHealth < 1)
       {
         Console.WriteLine(Script.roomWR47H.wolfDeath);
@@ -1215,14 +1413,16 @@ class GridOfSin
         break;
       }
 
+      //the player should choose when the information progresses
       Console.WriteLine("[ PRESS ENTER TO CONTINUE ]");
       Console.ReadLine();
 
       //wolf's attack
       Console.WriteLine("Wolf's attack:\n==============\n");
-      damage = rand.Next(0, wolfDamage);
-      playerHealth -= damage;
-      Console.WriteLine(getWolfText(damage));
+      damage = rand.Next(0, wolfDamage); //determine possible damage the wolf will do
+      playerHealth -= damage; //the player got hit this much
+
+      Console.WriteLine(getWolfText(damage)); //get the corresponding event which happened based on how much damage was done
       Console.WriteLine($"\n[ The wolf did {damage} damage to you ]");
       if (playerHealth > 0)
       {
@@ -1230,17 +1430,22 @@ class GridOfSin
         Console.WriteLine($"[ {playerName}'s health: {playerHealth} ]");
       }
 
+      //the player has died if this is true, the player has LOST the battle, GAME OVER
       if (playerHealth < 1)
       {
         Console.WriteLine(Script.roomWR47H.playerDeath);
         conclusion(false);
       }
 
+      //the player should choose when the information progresses
       Console.WriteLine("[ PRESS ENTER TO CONTINUE ]");
       Console.ReadLine();
     }
   }
 
+  /*
+  Helper function, acts as a lookup table for the script event that happens based off of damage and the kind of weapon used.
+  */
   public static string getDamageText(string weapon, int damage)
   {
     switch (weapon)
@@ -1264,6 +1469,9 @@ class GridOfSin
     }
   }
 
+  /*
+  Helper function, gets the corresponding script event that happens based off of the damage the wolf has done.
+  */
   public static string getWolfText(int damage)
   {
     if (damage > (2 * wolfDamage / 3)) return (Script.roomWR47H.wolfAttacks.heavy);
@@ -1272,6 +1480,9 @@ class GridOfSin
     else return (Script.roomWR47H.wolfAttacks.miss);
   }
 
+  /*
+  This is a game ending state. If true is passed, the player has won the game. If false, the player has lost the game
+  */
   private static void conclusion(bool win)
   {
     if (win)
@@ -1285,6 +1496,7 @@ class GridOfSin
 
     while (true)
     {
+      //prompt the user to player again, whether they won or lost
       playerChoice = getChoice("Would you like to play again?");
 
       if (playerChoice.Contains("YES"))
@@ -1292,6 +1504,7 @@ class GridOfSin
         setGameData();
         roomR3GR37();
       }
+      //no more game to be played, display credits and exit the program
       else if (playerChoice.Contains("NO"))
       {
         credits();
@@ -1299,6 +1512,9 @@ class GridOfSin
     }
   }
 
+  /*
+  Helper function, just prints the credits and exists the game safely
+  */
   public static void credits()
   {
     Console.WriteLine(Script.decisionSeparator);
