@@ -88,8 +88,9 @@ class Script
   {
     public static string initial =
     "\nYou find yourself in a small, dark dungeon-like chamber. The walls are made of cold, gray stone, and the only light comes " +
-    "\nfrom a dim light bulb, which hangs from a thin cable. The air in the room is thick, and a sense of dread hangs in it." +
+    "\nfrom a dim light bulb, which hangs from a thin cable. The air in the room is thick, and a sense of dread hangs in it.";
 
+    public static string flashlight =
     "\n\nThere is a flashlight on the ground in the one corner of the dungeon.";
 
     public static string look =
@@ -99,9 +100,7 @@ class Script
     public static string previous =
     "\nThis is the room you started in. It is a small, dark dungeon-like chamber. The walls are made of cold, gray stone, and the " +
     "\nonly light comes from a dim light bulb, which hangs from a thin cable. The air in the room is thick, and a sense of dread " +
-    "\nhangs in it."+
-
-    "\n\nThere is a flashlight on the ground in the one corner of the dungeon.";
+    "\nhangs in it.";
 
     public static string navigation =
     "\nThere are two thick wooden doors: one is marked as \"PR1D3\" (North), while the other is marked as \"6R33D\" (East). ";
@@ -645,6 +644,11 @@ class GridOfSin
       Console.WriteLine(Script.roomR3GR37.initial);
       roomsExplored["R3GR37"] = true;
     }
+    if (!playerInventory.Contains("Flashlight"))
+    {
+      Console.WriteLine(Script.roomR3GR37.flashlight);
+    }
+
     Console.WriteLine(Script.roomR3GR37.navigation);
 
     //gets input from the player to determine what they want to do
@@ -665,7 +669,7 @@ class GridOfSin
         Console.WriteLine(Script.decisionSeparator);
         Console.WriteLine(Script.roomR3GR37.look);
       }
-      else if (playerChoice.Contains("TAKE") || playerChoice.Contains("FLASHLIGHT"))
+      else if ((playerChoice.Contains("TAKE") || playerChoice.Contains("FLASHLIGHT")) && !playerInventory.Contains("Flashlight"))
       {
         Console.WriteLine(Script.decisionSeparator);
         Console.WriteLine("\nYou pick up the flashlight.");
